@@ -23,7 +23,7 @@ diff --speed-large-files --no-dereference --minimal -Naur u-boot-2024.01-rc3/dts
 +		mmc0 = &mmc0;
 +		mmc1 = &mmc1;
 +		mmc2 = &mmc2;
-+		ethernet0 = &emac1;
++		ethernet0 = &emac0;
 +		serial0 = &uart0;
 +	};
 +
@@ -61,21 +61,17 @@ diff --speed-large-files --no-dereference --minimal -Naur u-boot-2024.01-rc3/dts
 +	status = "okay";
 +};
 +
-+&emac1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&rmii_pins>;
-+	phy-mode = "rmii";
-+	phy-handle = <&rmii_phy>;
-+	phy-supply = <&reg_aldo1>;
++&emac0 {
 +	allwinner,rx-delay-ps = <3100>;
 +	allwinner,tx-delay-ps = <700>;
-+	status = "okay";
++	phy-mode = "rmii";
++	phy-supply = <&reg_dcdce>;
 +};
 +
 +&mdio1 {
-+	rmii_phy: ethernet-phy@16 {
++	rmii_phy: ethernet-phy@0 {
 +		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <16>;
++		reg = <0>;
 +	};
 +};
 +
